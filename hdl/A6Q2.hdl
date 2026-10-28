@@ -1,0 +1,15 @@
+/**
+ * L = O and (( V or S ) and ( not V or S ))
+ */
+
+CHIP A6Q2 {
+    IN V,S,O;
+    OUT L;
+
+    PARTS:
+    Not (in=V, out=notV);
+    Or (a=V, b=S, out=VorS);
+    Or (a=notV, b=S, out=notVorS);
+    And (a=VorS, b=notVorS, out=output1);
+    And (a=output1, b=O, out=L);
+}
