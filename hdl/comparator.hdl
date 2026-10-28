@@ -1,0 +1,20 @@
+CHIP comparator {
+    IN a1, a0, b1, b0;
+    OUT X,Y,Z;
+
+    PARTS:
+    Not (in=a0, out=nota0);
+    Not (in=a1, out=nota1);
+    Not (in=b0, out=notb0);
+    Not (in=b1, out=notb1);
+    And (a=notb1, b=a1, out=output1);
+    And (a=notb1, b=notb0, out=output2);
+    And (a=output2, b=a0, out=output3);
+    And (a=notb0, b=a1, out=output4);
+    And (a=output4, b=a0, out=output5);
+    Or (a=output1, b=output3, out=output6);
+    Or (a=output6, b=output5, out=X);
+
+
+
+}

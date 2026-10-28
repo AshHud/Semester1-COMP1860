@@ -1,0 +1,14 @@
+/**
+ * not a xor b
+ */
+ 
+CHIP notaxorb {
+    
+    IN a, b;
+    OUT O;
+    
+    PARTS:
+    Not (in=a, out=nota);
+    Xor(a=nota, b=b, out=O);
+    
+}
